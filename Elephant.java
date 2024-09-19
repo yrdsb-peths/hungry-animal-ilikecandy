@@ -26,14 +26,15 @@ public class Elephant extends Actor
     }
     
     /**
-     * 
+     * Eat apple if touching, and create a new one
      */
     public void eat() {
         if (isTouching(Apple.class)) {
             removeTouching(Apple.class);
-            
+                        
             MyWorld world = (MyWorld) getWorld();
             world.createApple();
+            world.increaseScore();
         }
     }
 }

@@ -9,6 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootImage[] idle = new GreenfootImage[8];
+    
+    public Elephant() {
+        for (int i = 0; i < 8; i++) {
+            idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+        }
+        setImage(idle[0]);
+    }
     
     public void act()
     {
@@ -21,6 +29,18 @@ public class Elephant extends Actor
         
         // apple collision behaviour
         eat();
+        
+        // Animate elephant
+        animateElephant();
+    }
+    
+    /**
+     * Elephant animation
+     */
+    int imageIndex = 0;
+    public void animateElephant() {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
     }
     
     /**

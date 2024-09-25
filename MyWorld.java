@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     public int score = 0;
     Label scoreLabel;
+    int level = 1;
     
     /**
      * The main world for the hero.
@@ -45,6 +46,10 @@ public class MyWorld extends World
     public void increaseScore() {
         score++;
         scoreLabel.setValue(score);
+        
+        if (score % 5 == 0) {
+            level += 1;
+        }
     }
     
     /**
@@ -52,6 +57,7 @@ public class MyWorld extends World
      */
     public void createApple() {
         Apple apple = new Apple();
+        apple.setSpeed(level);
         addObject(apple, Greenfoot.getRandomNumber(600), 0);
     }
 }

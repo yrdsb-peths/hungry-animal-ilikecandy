@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Apple here.
+ * Write a description of class Banana here.
  * 
  * @author Jacob Tian
  * @version September 2024
  */
-public class Apple extends Food
+public class Banana extends Food
 {
-    public Apple(int speed) {
-        super(1, speed);
+    public Banana(int speed) {
+        super(2, speed);
     }
 }

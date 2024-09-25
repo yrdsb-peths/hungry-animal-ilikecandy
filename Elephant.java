@@ -44,7 +44,7 @@ public class Elephant extends Actor
             facing = "right";
         }
         
-        // apple collision behaviour
+        // food collision behaviour
         eat();
         
         // Animate elephant
@@ -74,14 +74,15 @@ public class Elephant extends Actor
      * Eat apple if touching, and create a new one
      */
     public void eat() {
-        if (isTouching(Apple.class)) {
-            removeTouching(Apple.class);
-                        
+        Actor touching = getOneIntersectingObject(Food.class);
+        if (touching != null) {                        
             MyWorld world = (MyWorld) getWorld();
-            world.createApple();
-            world.increaseScore();
+            world.createFood();
+            Food fTouching = (Food) touching;
+            world.increaseScore(fTouching.getPoints());
             
             elephantSound.play();
+            removeTouching(Food.class);
         }
     }
 }
